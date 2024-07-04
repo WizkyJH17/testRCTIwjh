@@ -15,6 +15,12 @@
 		0BF660EE2C3692870077DB28 /* R_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660ED2C3692870077DB28 /* R_Tests.swift */; };
 		0BF660F82C3692870077DB28 /* R_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660F72C3692870077DB28 /* R_UITests.swift */; };
 		0BF660FA2C3692870077DB28 /* R_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660F92C3692870077DB28 /* R_UITestsLaunchTests.swift */; };
+		0BF6610C2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
+		0BF6610D2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
+		0BF6610E2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
+		0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
+		0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
+		0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,8 @@
 		0BF660F32C3692870077DB28 /* R+UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "R+UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF660F72C3692870077DB28 /* R_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_UITests.swift; sourceTree = "<group>"; };
 		0BF660F92C3692870077DB28 /* R_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BF6610B2C3695840077DB28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0BF661112C3696B80077DB28 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 			children = (
 				0BF661082C3692E80077DB28 /* Assets */,
 				0BF661072C3692DD0077DB28 /* Support */,
+				0BF661092C36952F0077DB28 /* TabBar */,
 				0BF661062C3692D70077DB28 /* View */,
 				0BF660E42C3692870077DB28 /* Info.plist */,
 			);
@@ -125,7 +134,8 @@
 		0BF661062C3692D70077DB28 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0BF660DA2C3692850077DB28 /* HomeViewController.swift */,
+				0BF661102C3696A10077DB28 /* Favourite */,
+				0BF6610F2C36969D0077DB28 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +156,30 @@
 				0BF660DF2C3692870077DB28 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		0BF661092C36952F0077DB28 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0BF6610B2C3695840077DB28 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0BF6610F2C36969D0077DB28 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0BF660DA2C3692850077DB28 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0BF661102C3696A10077DB28 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				0BF661112C3696B80077DB28 /* FavouriteViewController.swift */,
+			);
+			path = Favourite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BF660DB2C3692850077DB28 /* HomeViewController.swift in Sources */,
+				0BF6610C2C3695840077DB28 /* TabBarController.swift in Sources */,
 				0BF660D72C3692850077DB28 /* AppDelegate.swift in Sources */,
+				0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
 				0BF660D92C3692850077DB28 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +325,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BF660EE2C3692870077DB28 /* R_Tests.swift in Sources */,
+				0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF6610D2C3695840077DB28 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF6610E2C3695840077DB28 /* TabBarController.swift in Sources */,
 				0BF660F82C3692870077DB28 /* R_UITests.swift in Sources */,
 				0BF660FA2C3692870077DB28 /* R_UITestsLaunchTests.swift in Sources */,
 			);
