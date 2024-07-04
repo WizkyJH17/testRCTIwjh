@@ -21,6 +21,9 @@
 		0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
 		0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
 		0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
+		0BF661182C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
+		0BF661192C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
+		0BF6611A2C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
 		DDC2E225CB99DFFDE1C78083 /* Pods_R_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D90381B58B7CD1E65BADC /* Pods_R_.framework */; };
 		EB8481611266F840A05B58B8 /* Pods_R__R_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0990F915CF3C3DB20A0992 /* Pods_R__R_UITests.framework */; };
 		F1905DBAD5F8FAD494F662E0 /* Pods_R_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E2735506817F6C4D3782E1B /* Pods_R_Tests.framework */; };
@@ -59,6 +62,7 @@
 		0BF660F92C3692870077DB28 /* R_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0BF6610B2C3695840077DB28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0BF661112C3696B80077DB28 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		0BF661172C369DBE0077DB28 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		1E2735506817F6C4D3782E1B /* Pods_R_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_R_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C95F3A304875D83260BAA9C /* Pods-R+.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-R+.release.xcconfig"; path = "Target Support Files/Pods-R+/Pods-R+.release.xcconfig"; sourceTree = "<group>"; };
 		55FB0419C900C6CD8CF51D9A /* Pods-R+-R+UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-R+-R+UITests.release.xcconfig"; path = "Target Support Files/Pods-R+-R+UITests/Pods-R+-R+UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				0BF661082C3692E80077DB28 /* Assets */,
 				0BF661072C3692DD0077DB28 /* Support */,
 				0BF661092C36952F0077DB28 /* TabBar */,
+				0BF661152C369D9E0077DB28 /* Manager */,
 				0BF661062C3692D70077DB28 /* View */,
 				0BF660E42C3692870077DB28 /* Info.plist */,
 			);
@@ -199,6 +204,22 @@
 			path = Favourite;
 			sourceTree = "<group>";
 		};
+		0BF661152C369D9E0077DB28 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0BF661162C369DAE0077DB28 /* Session */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		0BF661162C369DAE0077DB28 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				0BF661172C369DBE0077DB28 /* SessionManager.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		4D31B65D94A0C64269BCBA56 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +230,6 @@
 				D5181BF3AF9A286F3D0210B5 /* Pods-R+Tests.debug.xcconfig */,
 				61672EE2FE36F0A4F6832E98 /* Pods-R+Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -463,6 +483,7 @@
 			files = (
 				0BF660DB2C3692850077DB28 /* HomeViewController.swift in Sources */,
 				0BF6610C2C3695840077DB28 /* TabBarController.swift in Sources */,
+				0BF661182C369DBE0077DB28 /* SessionManager.swift in Sources */,
 				0BF660D72C3692850077DB28 /* AppDelegate.swift in Sources */,
 				0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
 				0BF660D92C3692850077DB28 /* SceneDelegate.swift in Sources */,
@@ -475,6 +496,7 @@
 			files = (
 				0BF660EE2C3692870077DB28 /* R_Tests.swift in Sources */,
 				0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF661192C369DBE0077DB28 /* SessionManager.swift in Sources */,
 				0BF6610D2C3695840077DB28 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +508,7 @@
 				0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
 				0BF6610E2C3695840077DB28 /* TabBarController.swift in Sources */,
 				0BF660F82C3692870077DB28 /* R_UITests.swift in Sources */,
+				0BF6611A2C369DBE0077DB28 /* SessionManager.swift in Sources */,
 				0BF660FA2C3692870077DB28 /* R_UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
