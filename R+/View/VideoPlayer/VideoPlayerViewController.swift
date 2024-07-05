@@ -31,15 +31,29 @@ class VideoPlayerViewController: UIViewController {
         return view
     }()
     
+    private lazy var favoriteButton: UIButton = {
+        let button: UIButton = UIButton()
+        button.backgroundColor = UIColor(white: 0.2, alpha: 1.0)
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        return button
+    }()
+    
+    private lazy var authorStackView: UIStackView = {
+        let stackView: UIStackView = UIStackView(arrangedSubviews: [authorView, favoriteButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
+    
     private lazy var descriptionView: VideoDescriptionView = {
         let view: VideoDescriptionView = VideoDescriptionView()
         return view
     }()
     
     private lazy var videoDetailStackView: UIStackView = {
-        let stackView: UIStackView = UIStackView(arrangedSubviews: [titleLabel, authorView, descriptionView])
+        let stackView: UIStackView = UIStackView(arrangedSubviews: [titleLabel, authorStackView, descriptionView])
         stackView.axis = .vertical
-        stackView.spacing = 8.0
+        stackView.spacing = 10.0
         return stackView
     }()
     
@@ -78,6 +92,11 @@ class VideoPlayerViewController: UIViewController {
         setupNavBar()
         setupTabBar()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupCornerRadius()
+    }
 }
 
 // MARK: - View Setup
@@ -101,6 +120,7 @@ extension VideoPlayerViewController {
         setupStackViewConstraint()
         setupVideoViewConstraint()
         setupVideoDetailStackViewConstraint()
+        setupFavoriteBurronConstraint()
     }
     
     private func setupStackViewConstraint() {
@@ -123,6 +143,12 @@ extension VideoPlayerViewController {
         NSLayoutConstraint.activate([
             videoDetailStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16.0),
             videoDetailStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16.0)
+        ])
+    }
+    
+    private func setupFavoriteBurronConstraint() {
+        NSLayoutConstraint.activate([
+            favoriteButton.heightAnchor.constraint(equalTo: favoriteButton.widthAnchor, multiplier: 1.0)
         ])
     }
     
@@ -215,5 +241,13 @@ extension VideoPlayerViewController {
     
     private func setupTabBar() {
         hideTabBar()
+    }
+}
+
+// MARK: - Layout Subviews Function
+extension VideoPlayerViewController {
+    private func setupCornerRadius() {
+        favoriteButton.layer.masksToBounds = true
+        favoriteButton.layer.cornerRadius = favoriteButton.bounds.height / 2.0
     }
 }

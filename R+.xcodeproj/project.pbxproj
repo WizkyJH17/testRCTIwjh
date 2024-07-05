@@ -18,9 +18,9 @@
 		0BF6610C2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
 		0BF6610D2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
 		0BF6610E2C3695840077DB28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6610B2C3695840077DB28 /* TabBarController.swift */; };
-		0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
-		0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
-		0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavouriteViewController.swift */; };
+		0BF661122C3696B80077DB28 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavoriteViewController.swift */; };
+		0BF661132C3696B80077DB28 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavoriteViewController.swift */; };
+		0BF661142C3696B80077DB28 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661112C3696B80077DB28 /* FavoriteViewController.swift */; };
 		0BF661182C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
 		0BF661192C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
 		0BF6611A2C369DBE0077DB28 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF661172C369DBE0077DB28 /* SessionManager.swift */; };
@@ -91,7 +91,7 @@
 		0BF660F72C3692870077DB28 /* R_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_UITests.swift; sourceTree = "<group>"; };
 		0BF660F92C3692870077DB28 /* R_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0BF6610B2C3695840077DB28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		0BF661112C3696B80077DB28 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		0BF661112C3696B80077DB28 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		0BF661172C369DBE0077DB28 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		0BF6611D2C36A07D0077DB28 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		0BF661222C36A20A0077DB28 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		0BF661102C3696A10077DB28 /* Favourite */ = {
 			isa = PBXGroup;
 			children = (
-				0BF661112C3696B80077DB28 /* FavouriteViewController.swift */,
+				0BF661112C3696B80077DB28 /* FavoriteViewController.swift */,
 			);
 			path = Favourite;
 			sourceTree = "<group>";
@@ -596,7 +596,7 @@
 				0BF660D72C3692850077DB28 /* AppDelegate.swift in Sources */,
 				0BF661442C377E400077DB28 /* VideoPlayerViewModel.swift in Sources */,
 				0BF661232C36A20A0077DB28 /* Video.swift in Sources */,
-				0BF661122C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF661122C3696B80077DB28 /* FavoriteViewController.swift in Sources */,
 				0BF661482C3799660077DB28 /* AuthorDetailView.swift in Sources */,
 				0BF6614C2C37A1110077DB28 /* VideoDescriptionView.swift in Sources */,
 				0BF6613B2C37784B0077DB28 /* VideoPlayerViewController.swift in Sources */,
@@ -614,7 +614,7 @@
 				0BF661372C36FED80077DB28 /* HomeViewModel.swift in Sources */,
 				0BF661242C36A20A0077DB28 /* Video.swift in Sources */,
 				0BF6614D2C37A1110077DB28 /* VideoDescriptionView.swift in Sources */,
-				0BF661132C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF661132C3696B80077DB28 /* FavoriteViewController.swift in Sources */,
 				0BF661492C3799660077DB28 /* AuthorDetailView.swift in Sources */,
 				0BF6611F2C36A07D0077DB28 /* VideoManager.swift in Sources */,
 				0BF661192C369DBE0077DB28 /* SessionManager.swift in Sources */,
@@ -632,7 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BF661422C377A6D0077DB28 /* VideoView.swift in Sources */,
-				0BF661142C3696B80077DB28 /* FavouriteViewController.swift in Sources */,
+				0BF661142C3696B80077DB28 /* FavoriteViewController.swift in Sources */,
 				0BF6610E2C3695840077DB28 /* TabBarController.swift in Sources */,
 				0BF6614E2C37A1110077DB28 /* VideoDescriptionView.swift in Sources */,
 				0BF661462C377E400077DB28 /* VideoPlayerViewModel.swift in Sources */,

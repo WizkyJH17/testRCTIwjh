@@ -20,11 +20,11 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
-    private lazy var favouriteViewController: UIViewController = {
+    private lazy var favoriteViewController: UIViewController = {
         let viewController: UINavigationController = generateTab(
-            viewController: FavouriteViewController(),
-            tabBarTitle: "Favourite",
-            title: "Favourite Videos",
+            viewController: FavoriteViewController(),
+            tabBarTitle: "Favorite",
+            title: "Favorite Videos",
             icon: UIImage(systemName: "heart")
         )
         return viewController
@@ -42,7 +42,7 @@ extension TabBarController {
     // Main
     private func setupTabBar() {
         setBackgroundColor(.clear)
-        setViewControllerList([homeViewController, favouriteViewController])
+        setViewControllerList([homeViewController, favoriteViewController])
     }
     
     // Sub

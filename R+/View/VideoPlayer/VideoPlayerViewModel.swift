@@ -27,6 +27,7 @@ class VideoPlayerViewModel {
     let videoTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
     let authorDetail: BehaviorRelay<AuthorDetailAPI?> = BehaviorRelay(value: nil)
     let videoDescription: BehaviorRelay<VideDescriptionAPI?> = BehaviorRelay(value: nil)
+    let isFavorite: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
     // Lifecycle
     init(with api: VideoDetailAPI) {
