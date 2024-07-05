@@ -16,6 +16,9 @@
 		0BE5D0F22C37BBEF00F4B0F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F12C37BBEF00F4B0F0 /* CoreDataManager.swift */; };
 		0BE5D0F32C37BBEF00F4B0F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F12C37BBEF00F4B0F0 /* CoreDataManager.swift */; };
 		0BE5D0F42C37BBEF00F4B0F0 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F12C37BBEF00F4B0F0 /* CoreDataManager.swift */; };
+		0BE5D0F62C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F52C37C8E200F4B0F0 /* FavoriteViewModel.swift */; };
+		0BE5D0F72C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F52C37C8E200F4B0F0 /* FavoriteViewModel.swift */; };
+		0BE5D0F82C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE5D0F52C37C8E200F4B0F0 /* FavoriteViewModel.swift */; };
 		0BF660D72C3692850077DB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660D62C3692850077DB28 /* AppDelegate.swift */; };
 		0BF660D92C3692850077DB28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660D82C3692850077DB28 /* SceneDelegate.swift */; };
 		0BF660DB2C3692850077DB28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF660DA2C3692850077DB28 /* HomeViewController.swift */; };
@@ -90,6 +93,7 @@
 		0BE5D0E82C37B87400F4B0F0 /* VideoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		0BE5D0EC2C37BA0500F4B0F0 /* FavoriteVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVideo.swift; sourceTree = "<group>"; };
 		0BE5D0F12C37BBEF00F4B0F0 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0BE5D0F52C37C8E200F4B0F0 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		0BF660D32C3692850077DB28 /* R+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF660D62C3692850077DB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BF660D82C3692850077DB28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				0BF661112C3696B80077DB28 /* FavoriteViewController.swift */,
+				0BE5D0F52C37C8E200F4B0F0 /* FavoriteViewModel.swift */,
 			);
 			path = Favourite;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				0BF6613B2C37784B0077DB28 /* VideoPlayerViewController.swift in Sources */,
 				0BF660D92C3692850077DB28 /* SceneDelegate.swift in Sources */,
 				0BF6612C2C36E96F0077DB28 /* VideoCell.swift in Sources */,
+				0BE5D0F62C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */,
 				0BF661402C377A6D0077DB28 /* VideoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BE5D0F72C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */,
 				0BF660EE2C3692870077DB28 /* R_Tests.swift in Sources */,
 				0BF661372C36FED80077DB28 /* HomeViewModel.swift in Sources */,
 				0BE5D0EA2C37B87400F4B0F0 /* VideoDataModel.xcdatamodeld in Sources */,
@@ -683,6 +690,7 @@
 				0BF661462C377E400077DB28 /* VideoPlayerViewModel.swift in Sources */,
 				0BE5D0EB2C37B87400F4B0F0 /* VideoDataModel.xcdatamodeld in Sources */,
 				0BE5D0F42C37BBEF00F4B0F0 /* CoreDataManager.swift in Sources */,
+				0BE5D0F82C37C8E200F4B0F0 /* FavoriteViewModel.swift in Sources */,
 				0BE5D0EF2C37BA0500F4B0F0 /* FavoriteVideo.swift in Sources */,
 				0BF660F82C3692870077DB28 /* R_UITests.swift in Sources */,
 				0BF661382C36FED80077DB28 /* HomeViewModel.swift in Sources */,

@@ -151,7 +151,7 @@ extension HomeViewController {
     }
 }
 
-// MARK: - Collection View FUnction
+// MARK: - Collection View Function
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
