@@ -41,7 +41,7 @@ class TabBarController: UITabBarController {
 extension TabBarController {
     // Main
     private func setupTabBar() {
-        setBackgroundColor(.black)
+        setBackgroundColor(.clear)
         setViewControllerList([homeViewController, favouriteViewController])
     }
     
