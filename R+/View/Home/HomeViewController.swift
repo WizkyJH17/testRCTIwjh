@@ -95,9 +95,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavBar()
+        setupTabBar()
+    }
 }
 
-// MARK: - Init Function
+// MARK: - View Setup
 extension HomeViewController {
     private func setupView() {
         setupBackgroundColor()
@@ -134,7 +140,18 @@ extension HomeViewController {
     }
 }
 
+// MARK: - Will Appear FUnction
+extension HomeViewController {
+    private func setupNavBar() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func setupTabBar() {
+        showTabBar()
+    }
+}
 
+// MARK: - Collection View FUnction
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2

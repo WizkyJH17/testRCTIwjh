@@ -66,3 +66,31 @@ extension TabBarController {
         return navigationController
     }
 }
+
+// MARK: - Show / Hide Function
+extension TabBarController {
+    func hideAnimated(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, animations: {
+            self.tabBar.layer.opacity = 0.0
+        })
+    }
+    
+    func showAnimated(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, animations: {
+            self.tabBar.layer.opacity = 1.0
+        })
+    }
+}
+
+// MARK: - UIViewController Extension
+extension UIViewController {
+    public func showTabBar() {
+        guard let tabBar = navigationController?.tabBarController as? TabBarController else { return }
+        tabBar.showAnimated()
+    }
+    
+    public func hideTabBar() {
+        guard let tabBar = navigationController?.tabBarController as? TabBarController else { return }
+        tabBar.hideAnimated()
+    }
+}
