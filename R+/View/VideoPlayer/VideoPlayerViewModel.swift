@@ -29,8 +29,12 @@ class VideoPlayerViewModel {
     let videoDescription: BehaviorRelay<VideDescriptionAPI?> = BehaviorRelay(value: nil)
     let isFavorite: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     
+    // Variable
+    private var api: VideoDetailAPI
+    
     // Lifecycle
     init(with api: VideoDetailAPI) {
+        self.api = api
         setVideoUrl(api.videoUrl)
         setTitle(api.title)
         setAuthorDetail(api)
@@ -62,5 +66,12 @@ extension VideoPlayerViewModel {
     func toggleVideoControl() {
         let control: VideoControlEnum = videoControl.value == .play ? .pause : .play
         videoControl.accept(control)
+    }
+}
+
+// MARK: - Request Function
+extension VideoPlayerViewModel {
+    func requestVideoToFavorite() -> FavoriteVideoAPI? {
+        return api as? FavoriteVideoAPI
     }
 }

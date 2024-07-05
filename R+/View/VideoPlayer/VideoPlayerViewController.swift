@@ -106,6 +106,7 @@ extension VideoPlayerViewController {
         addView()
         setupConstraints()
         setupVideoTapGesture()
+        setupFavoriteTarget()
     }
     
     private func setupBackgroundColor() {
@@ -175,6 +176,16 @@ extension VideoPlayerViewController {
     
     @objc private func goFullScreen() {
         // TODO: Add Fullscreen
+    }
+    
+    private func setupFavoriteTarget() {
+        favoriteButton.addTarget(self, action: #selector(setFavoriteVideo), for: .touchDown)
+    }
+    
+    @objc private func setFavoriteVideo() {
+        guard let api = viewModel.requestVideoToFavorite() else { return }
+        let manager = CoreDataManager()
+        manager.saveVideo(api)
     }
 }
 

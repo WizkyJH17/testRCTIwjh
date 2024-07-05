@@ -11,7 +11,7 @@ import Foundation
 typealias VideoDetailAPI = VideoPlayerAPI & AuthorDetailAPI & VideDescriptionAPI
 
 // MARK: - Model
-class Video: VideoCellAPI, VideoDetailAPI {
+class Video: VideoCellAPI, VideoDetailAPI, FavoriteVideoAPI {
     // Variable
     var id: String
     var title: String
