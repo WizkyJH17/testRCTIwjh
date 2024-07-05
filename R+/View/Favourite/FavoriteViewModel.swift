@@ -11,8 +11,7 @@ import RxRelay
 // MARK: - HomeViewModel
 class FavoriteViewModel {
     // Rx Variable
-    let favoriteVideos: BehaviorRelay<[FavoriteVideo]> = BehaviorRelay(value: [])
-    let title: BehaviorRelay<String> = BehaviorRelay(value: "lol")
+    let videos: BehaviorRelay<[Video]> = BehaviorRelay(value: [])
     
     // Lifecycle
     init() {
@@ -24,7 +23,14 @@ class FavoriteViewModel {
 extension FavoriteViewModel {
     func fetchVideos() {
         let manager: CoreDataManager = CoreDataManager()
-        guard let videos = manager.fetchAllVideo() else { return }
-        favoriteVideos.accept(videos)
+        guard let favoriteVideos = manager.fetchAllVideo() else { return }
+        videos.accept(favoriteVideos.map({ Video(favouriteVideo: $0) }))
+    }
+}
+
+// MARK: - Function
+extension FavoriteViewModel {
+    func videoPlayerAPI(at index: Int) -> VideoDetailAPI? {
+        return videos.value[index]
     }
 }

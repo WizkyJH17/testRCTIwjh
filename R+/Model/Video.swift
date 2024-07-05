@@ -39,6 +39,20 @@ class Video: VideoCellAPI, VideoDetailAPI, FavoriteVideoAPI {
         subscriberCount = (json["subscriber"] as? String)?.convertToSubscriberCount() ?? 0
         isLive = json["isLive"] as? Bool ?? false
     }
+    
+    init(favouriteVideo: FavoriteVideo) {
+        id = favouriteVideo.id
+        title = favouriteVideo.title
+        thumbnailUrl = favouriteVideo.thumbnailUrl
+        duration = favouriteVideo.duration
+        uploadTime = favouriteVideo.uploadTime
+        viewCount = Int(favouriteVideo.viewCount)
+        author = favouriteVideo.author
+        videoUrl = favouriteVideo.videoUrl
+        description = favouriteVideo.videoDescription
+        subscriberCount = Int(favouriteVideo.subscriberCount)
+        isLive = false
+    }
 }
 
 // MARK: - String Extension

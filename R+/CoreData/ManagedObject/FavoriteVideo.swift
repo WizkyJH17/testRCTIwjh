@@ -10,7 +10,7 @@ import CoreData
 
 // MARK: - Core Data Model
 @objc(FavoriteVideo)
-public class FavoriteVideo: NSManagedObject, VideoCellAPI {
+public class FavoriteVideo: NSManagedObject {
     // Variable
     @NSManaged public var id: String
     @NSManaged public var title: String

@@ -80,12 +80,21 @@ extension FavoriteViewController {
     }
     
     private func setupBinding() {
-        viewModel.favoriteVideos
+        viewModel.videos
             .bind(to: collectionView.rx.items) { [weak self] (collectionView, row, api) -> UICollectionViewCell in
                 guard self != nil else { return UICollectionViewCell() }
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: IndexPath(index: row)) as! VideoCell
                 return cell.setupCell(with: api)
             }
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.itemSelected
+            .bind(onNext: { [weak self] (indexPath) in
+                guard let self, let api = viewModel.videoPlayerAPI(at: indexPath.row) else { return }
+                let viewModel = VideoPlayerViewModel(with: api)
+                let viewController = VideoPlayerViewController(with: viewModel)
+                navigationController?.pushViewController(viewController, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }
