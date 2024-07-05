@@ -39,7 +39,7 @@ extension HomeViewModel {
 
 // MARK: - Function
 extension HomeViewModel {
-    func videoPlayerAPI(at indexPath: IndexPath) -> VideoPlayerAPI? {
+    func videoPlayerAPI(at indexPath: IndexPath) -> VideoDetailAPI? {
         switch indexPath.section {
         case 0:
             return liveVideos.value[indexPath.row]
