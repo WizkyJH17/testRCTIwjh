@@ -31,8 +31,13 @@ class VideoPlayerViewController: UIViewController {
         return view
     }()
     
+    private lazy var descriptionView: VideoDescriptionView = {
+        let view: VideoDescriptionView = VideoDescriptionView()
+        return view
+    }()
+    
     private lazy var videoDetailStackView: UIStackView = {
-        let stackView: UIStackView = UIStackView(arrangedSubviews: [titleLabel, authorView])
+        let stackView: UIStackView = UIStackView(arrangedSubviews: [titleLabel, authorView, descriptionView])
         stackView.axis = .vertical
         stackView.spacing = 8.0
         return stackView
@@ -153,6 +158,7 @@ extension VideoPlayerViewController {
         setupVideoBinding()
         setupTitleBinding()
         setupAuthorDetailBinding()
+        setupVideDescriptionBinding()
     }
     
     private func setupVideoBinding() {
@@ -187,6 +193,15 @@ extension VideoPlayerViewController {
             .bind(onNext: { [weak self] (api) in
                 guard let self, let api else { return }
                 self.authorView.setupComponent(with: api)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupVideDescriptionBinding() {
+        viewModel.videoDescription
+            .bind(onNext: { [weak self] (api) in
+                guard let self, let api else { return }
+                self.descriptionView.setupComponent(with: api)
             })
             .disposed(by: disposeBag)
     }

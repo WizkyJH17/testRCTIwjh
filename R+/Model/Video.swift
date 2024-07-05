@@ -8,7 +8,7 @@
 import Foundation
 
 // Typealias
-typealias VideoDetailAPI = VideoPlayerAPI & AuthorDetailAPI
+typealias VideoDetailAPI = VideoPlayerAPI & AuthorDetailAPI & VideDescriptionAPI
 
 // MARK: - Model
 class Video: VideoCellAPI, VideoDetailAPI {

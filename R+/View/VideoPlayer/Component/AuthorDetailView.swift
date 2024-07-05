@@ -74,7 +74,17 @@ extension AuthorDetailView {
     }
     
     private func setupConstraint() {
+        setupStackViewConstraint()
         setupAuthorImageViewConstraint()
+    }
+    
+    private func setupStackViewConstraint() {
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
     
     private func setupAuthorImageViewConstraint() {
@@ -89,7 +99,7 @@ extension AuthorDetailView {
 extension AuthorDetailView {
     func setupComponent(with api: AuthorDetailAPI) {
         authorNameLabel.text = api.author
-        subscriberCountLabel.text = api.subscriberCount.convertToCountString()
+        subscriberCountLabel.text = api.subscriberCount.convertToCountString() + " Subscriber"
     }
 }
 
@@ -97,11 +107,11 @@ extension AuthorDetailView {
 extension Int {
     func convertToCountString() -> String {
         if self > 1000000 {
-            return "\(self/1000000)M Subscriber"
+            return "\(self/1000000)M"
         } else if self > 1000 {
-            return "\(self/1000)K Subscriber"
+            return "\(self/1000)K"
         } else {
-            return "\(self) Subscriber"
+            return "\(self)"
         }
     }
 }

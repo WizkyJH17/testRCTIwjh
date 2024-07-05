@@ -26,12 +26,14 @@ class VideoPlayerViewModel {
     let videoUrl: BehaviorRelay<URL?> = BehaviorRelay(value: nil)
     let videoTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
     let authorDetail: BehaviorRelay<AuthorDetailAPI?> = BehaviorRelay(value: nil)
+    let videoDescription: BehaviorRelay<VideDescriptionAPI?> = BehaviorRelay(value: nil)
     
     // Lifecycle
     init(with api: VideoDetailAPI) {
         setVideoUrl(api.videoUrl)
         setTitle(api.title)
         setAuthorDetail(api)
+        setDescriptionDetail(api)
     }
 }
 
@@ -47,6 +49,10 @@ extension VideoPlayerViewModel {
     
     private func setAuthorDetail(_ api: AuthorDetailAPI) {
         authorDetail.accept(api)
+    }
+    
+    private func setDescriptionDetail(_ api: VideDescriptionAPI) {
+        videoDescription.accept(api)
     }
 }
 
