@@ -6,6 +6,7 @@ target 'R+' do
   use_frameworks!
 
   # Pods for R+
+  pod 'Kingfisher', '~> 7.0'
   pod 'RxSwift', '~> 6.5.0'
   pod 'RxCocoa', '~> 6.5.0'
 

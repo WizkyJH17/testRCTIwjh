@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Model
-class Video {
+class Video: VideoCellAPI {
     // Variable
     var id: String
     var title: String
@@ -48,7 +48,6 @@ private extension String {
     func convertToDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM d, yyyy"
-        let time = TimeInterval()
         
         return dateFormatter.date(from: self)
     }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 // MARK: - View Controller
 class HomeViewController: UIViewController {
@@ -19,7 +21,7 @@ class HomeViewController: UIViewController {
         let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(0.5),
-                heightDimension: .fractionalHeight(0.15)),
+                heightDimension: .fractionalHeight(0.2)),
             subitems: [item])
         let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
@@ -44,7 +46,7 @@ class HomeViewController: UIViewController {
         let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.vertical(
             layoutSize: .init(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.25)),
+                heightDimension: .fractionalHeight(0.45)),
             subitems: [item])
         let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
         section.contentInsets.leading = 16.0
@@ -76,7 +78,7 @@ class HomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(LiveVideoCell.self, forCellWithReuseIdentifier: "LiveVideoCell")
+        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: "LiveVideoCell")
         collectionView.register(TitleHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderView")
         collectionView.backgroundColor = .black
         return collectionView
@@ -84,6 +86,9 @@ class HomeViewController: UIViewController {
     
     // Variable
     private let headerTitle: [String] = ["Tonton Live sekarang!", "Video Pilihan"]
+    
+    private let disposeBag: DisposeBag = DisposeBag()
+    private var viewModel: HomeViewModel = HomeViewModel()
 
     // Lifecycle
     override func viewDidLoad() {
@@ -98,6 +103,7 @@ extension HomeViewController {
         setupBackgroundColor()
         addView()
         setupConstraints()
+        setupBinding()
     }
     
     private func setupBackgroundColor() {
@@ -116,6 +122,16 @@ extension HomeViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    private func setupBinding() {
+        Observable
+            .combineLatest([viewModel.videos, viewModel.liveVideos])
+            .bind(onNext: { [weak self] _ in
+                guard let self else { return }
+                self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 
@@ -125,12 +141,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        switch section {
+        case 0:
+            return viewModel.liveVideos.value.count
+        case 1:
+            return viewModel.videos.value.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveVideoCell", for: indexPath)
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveVideoCell", for: indexPath) as! VideoCell
+        switch indexPath.section {
+        case 0:
+            return cell.setupCell(with: viewModel.liveVideos.value[indexPath.row])
+        case 1:
+            return cell.setupCell(with: viewModel.videos.value[indexPath.row])
+        default:
+            return UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
