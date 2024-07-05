@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Model
-class Video: VideoCellAPI {
+class Video: VideoCellAPI, VideoPlayerAPI {
     // Variable
     var id: String
     var title: String
@@ -42,7 +42,8 @@ class Video: VideoCellAPI {
 private extension String {
     func convertToURL() -> URL? {
         let string = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        return URL(string: string)
+        let atsString = string.replacingOccurrences(of: "http:", with: "https:")
+        return URL(string: atsString)
     }
     
     func convertToDate() -> Date? {

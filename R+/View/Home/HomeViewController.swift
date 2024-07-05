@@ -172,4 +172,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             assert(false, "Unexpected element kind")
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let api = viewModel.videoPlayerAPI(at: indexPath) else { return }
+        let viewModel = VideoPlayerViewModel(with: api)
+        let viewController = VideoPlayerViewController(with: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }

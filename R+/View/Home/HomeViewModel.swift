@@ -11,8 +11,8 @@ import RxRelay
 // MARK: - HomeViewModel
 class HomeViewModel {
     // Rx Variable
-    let liveVideos: BehaviorRelay<[VideoCellAPI]> = BehaviorRelay(value: [])
-    let videos: BehaviorRelay<[VideoCellAPI]> = BehaviorRelay(value: [])
+    let liveVideos: BehaviorRelay<[Video]> = BehaviorRelay(value: [])
+    let videos: BehaviorRelay<[Video]> = BehaviorRelay(value: [])
     
     // Lifecycle
     init() {
@@ -34,5 +34,19 @@ extension HomeViewModel {
                 print("<HomeViewModel> Error: \(error.localizedDescription)")
             }
         })
+    }
+}
+
+// MARK: - Function
+extension HomeViewModel {
+    func videoPlayerAPI(at indexPath: IndexPath) -> VideoPlayerAPI? {
+        switch indexPath.section {
+        case 0:
+            return liveVideos.value[indexPath.row]
+        case 1:
+            return videos.value[indexPath.row]
+        default:
+            return nil
+        }
     }
 }
