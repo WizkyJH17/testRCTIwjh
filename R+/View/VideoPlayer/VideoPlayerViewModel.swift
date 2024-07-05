@@ -13,9 +13,16 @@ protocol VideoPlayerAPI {
     var title: String { get }
 }
 
+// MARK: - Enum
+enum VideoControlEnum {
+    case play
+    case pause
+}
+
 // MARK: - View Model
 class VideoPlayerViewModel {
     // Rx Variable
+    let videoControl: BehaviorRelay<VideoControlEnum> = BehaviorRelay(value: .play)
     let videoUrl: BehaviorRelay<URL?> = BehaviorRelay(value: nil)
     let videoTitle: BehaviorRelay<String> = BehaviorRelay(value: "")
     
@@ -34,5 +41,13 @@ extension VideoPlayerViewModel {
     
     private func setTitle(_ title: String) {
         videoTitle.accept(title)
+    }
+}
+
+// MARK: - Video Control Function
+extension VideoPlayerViewModel {
+    func toggleVideoControl() {
+        let control: VideoControlEnum = videoControl.value == .play ? .pause : .play
+        videoControl.accept(control)
     }
 }

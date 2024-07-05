@@ -35,7 +35,6 @@ class VideoView: UIView {
 extension VideoView {
     private func setupView() {
         setupPlayerLayer()
-        setupGesture()
     }
     
     private func setupPlayerLayer() {
@@ -44,21 +43,6 @@ extension VideoView {
         if let playerLayer = playerLayer {
             layer.addSublayer(playerLayer)
         }
-    }
-    
-    private func setupGesture() {
-        let gesture: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleVideo))
-        addGestureRecognizer(gesture)
-    }
-    
-    @objc func toggleVideo() {
-        switch isPlay {
-        case true:
-            pause()
-        case false:
-            play()
-        }
-        isPlay.toggle()
     }
 }
 

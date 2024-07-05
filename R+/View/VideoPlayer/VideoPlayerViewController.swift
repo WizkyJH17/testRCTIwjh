@@ -76,6 +76,7 @@ extension VideoPlayerViewController {
         setupBackgroundColor()
         addView()
         setupConstraints()
+        setupVideoTapGesture()
     }
     
     private func setupBackgroundColor() {
@@ -114,6 +115,31 @@ extension VideoPlayerViewController {
             videoDetailStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16.0)
         ])
     }
+    
+    private func setupVideoTapGesture() {
+        // Single Tap
+        let singleTap: UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(toggleVideoControl))
+        singleTap.numberOfTapsRequired = 1
+        videoView.addGestureRecognizer(singleTap)
+        
+        // Double Tap
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(goFullScreen))
+        doubleTap.numberOfTapsRequired = 2
+        videoView.addGestureRecognizer(doubleTap)
+        
+        // Delays
+        singleTap.require(toFail: doubleTap)
+        singleTap.delaysTouchesBegan = true
+        doubleTap.delaysTouchesBegan = true
+    }
+    
+    @objc private func toggleVideoControl() {
+        viewModel.toggleVideoControl()
+    }
+    
+    @objc private func goFullScreen() {
+        // TODO: Add Fullscreen
+    }
 }
 
 // MARK: - Binding Function
@@ -128,6 +154,18 @@ extension VideoPlayerViewController {
             .bind(onNext: { [weak self] (videoUrl) in
                 guard let self, let videoUrl else { return }
                 videoView.configure(with: videoUrl)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.videoControl
+            .bind(onNext: { [weak self] (control) in
+                guard let self else { return }
+                switch control {
+                case .play:
+                    self.videoView.play()
+                case .pause:
+                    self.videoView.pause()
+                }
             })
             .disposed(by: disposeBag)
     }
