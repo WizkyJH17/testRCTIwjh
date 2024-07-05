@@ -48,18 +48,33 @@ extension CoreDataManager {
             let items = try context.fetch(fetchRequest)
             return items
         } catch {
-            print("<CoreDataManager> Error: Failed fetching posts, with message: \(error)")
+            print("<CoreDataManager> Error: Failed fetching videos, with message: \(error)")
         }
         return nil
     }
     
-    func fetchPredicatedPost(with predicate: NSPredicate) -> [FavoriteVideo]? {
+    func fetchAllId() -> [String]? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteVideo")
+        fetchRequest.resultType = .dictionaryResultType
+        fetchRequest.propertiesToFetch = ["id"]
+        do {
+            if let items = try context.fetch(fetchRequest) as? [[String: Any]] {
+                let ids = items.compactMap { $0["id"] as? String }
+                return ids
+            }
+        } catch {
+            print("<CoreDataManager> Error: Failed fetching videos, with message: \(error)")
+        }
+        return nil
+    }
+    
+    func fetchPredicatedVideo(with predicate: NSPredicate) -> [FavoriteVideo]? {
         fetchRequest.predicate = predicate
         do {
             let items = try context.fetch(fetchRequest)
             return items
         } catch {
-            print("<CoreDataManager> Error: Failed fetching posts, with message: \(error)")
+            print("<CoreDataManager> Error: Failed fetching videos, with message: \(error)")
         }
         return nil
     }
@@ -85,16 +100,16 @@ extension CoreDataManager {
 
 // MARK: - Delete Function
 extension CoreDataManager {
-    func deletePost(postDate: Date) {
-        let predicate: NSPredicate = NSPredicate(format: "date == %@", postDate as CVarArg)
-        guard let post = fetchPredicatedPost(with: predicate)?.first else {
-            return print("<CoreDataManager> Error: Failed to delete post due to missing post")
+    func deleteVideo(with id: String) {
+        let predicate: NSPredicate = NSPredicate(format: "id == %@", id as CVarArg)
+        guard let video = fetchPredicatedVideo(with: predicate)?.first else {
+            return print("<CoreDataManager> Error: Failed to delete video due to missing video")
         }
-        context.delete(post)
+        context.delete(video)
         saveContext()
     }
     
-    func deleteAllPost() {
+    func deleteAllVideos() {
         let deleteFetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavoriteVideo")
         let deleteRequest: NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetchRequest)
         
@@ -102,7 +117,7 @@ extension CoreDataManager {
             try context.execute(deleteRequest)
             saveContext()
         } catch {
-            print("<CoreDataManager> Error: Failed to delete all post, with message: \(error)")
+            print("<CoreDataManager> Error: Failed to delete all videos, with message: \(error)")
         }
     }
 }

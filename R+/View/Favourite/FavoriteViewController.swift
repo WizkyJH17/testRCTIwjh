@@ -48,8 +48,9 @@ class FavoriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.fetchVideos()
-        setupNavBar()
+        reloadVideos()
+        showNavBar()
+        showTabBar()
     }
 }
 
@@ -101,7 +102,11 @@ extension FavoriteViewController {
 
 // MARK: - Will Appear Fnction
 extension FavoriteViewController {
-    private func setupNavBar() {
+    private func reloadVideos() {
+        viewModel.fetchVideos()
+    }
+    
+    private func showNavBar() {
         title = "Video Favoritmu"
         navigationController?.setNavigationBarHidden(false, animated: true)
     }

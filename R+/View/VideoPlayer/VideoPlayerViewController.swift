@@ -106,7 +106,7 @@ extension VideoPlayerViewController {
         addView()
         setupConstraints()
         setupVideoTapGesture()
-        setupFavoriteTarget()
+//        setupFavoriteTarget()
     }
     
     private func setupBackgroundColor() {
@@ -183,9 +183,7 @@ extension VideoPlayerViewController {
     }
     
     @objc private func setFavoriteVideo() {
-        guard let api = viewModel.requestVideoToFavorite() else { return }
-        let manager = CoreDataManager()
-        manager.saveVideo(api)
+        viewModel.toggleFavorite()
     }
 }
 
@@ -196,6 +194,7 @@ extension VideoPlayerViewController {
         setupTitleBinding()
         setupAuthorDetailBinding()
         setupVideDescriptionBinding()
+        setupFavoriteBinding()
     }
     
     private func setupVideoBinding() {
@@ -239,6 +238,25 @@ extension VideoPlayerViewController {
             .bind(onNext: { [weak self] (api) in
                 guard let self, let api else { return }
                 self.descriptionView.setupComponent(with: api)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupFavoriteBinding() {
+        viewModel.isFavorite
+            .bind(onNext: { [weak self] (isFavorite) in
+                guard let self else { return }
+                let image: UIImage? = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+                let backgroundColor: UIColor = isFavorite ? .white : UIColor(white: 0.2, alpha: 1.0)
+                self.favoriteButton.setImage(image, for: .normal)
+                self.favoriteButton.backgroundColor = backgroundColor
+            })
+            .disposed(by: disposeBag)
+        
+        favoriteButton.rx.tap
+            .bind(onNext: { [weak self] in
+                guard let self else { return }
+                self.viewModel.toggleFavorite()
             })
             .disposed(by: disposeBag)
     }
