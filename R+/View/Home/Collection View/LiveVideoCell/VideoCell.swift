@@ -19,7 +19,7 @@ class VideoCell: UICollectionViewCell {
     // View Variable
     private lazy var thumbnailImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
-        imageView.backgroundColor = .systemGray
+        imageView.backgroundColor = UIColor(white: 0.2, alpha: 1.0)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
